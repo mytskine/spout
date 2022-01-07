@@ -85,11 +85,12 @@ class XMLReader extends \XMLReader
      */
     public function read()
     {
-        $this->useXMLInternalErrors();
+        \libxml_clear_errors();
+        $this->initialUseInternalErrorsValue = \libxml_use_internal_errors(true);
 
         $wasReadSuccessful = parent::read();
 
-        $this->resetXMLInternalErrorsSettingAndThrowIfXMLErrorOccured();
+        \libxml_use_internal_errors($this->initialUseInternalErrorsValue);
 
         return $wasReadSuccessful;
     }
