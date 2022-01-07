@@ -5,5 +5,6 @@
 /tests/coverage
 /vendor
 /composer.lock
+/.phpbench
 /.php_cs.cache
 /.phpunit.result.cache
